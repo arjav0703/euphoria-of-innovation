@@ -1,0 +1,127 @@
+/* ==========================================================
+   Euphoria of Innovation - Trinity Convent Sr. Sec. School
+   EDIT THE COLOURS HERE to restyle the whole site.
+   ========================================================== */
+:root {
+  --space:      #05010f;   /* page background */
+  --nebula:     #1a0b4a;   /* deep purple panels */
+  --panel:      #43336b;   /* card purple (matches registration form) */
+  --violet:     #8b5cf6;
+  --lilac:      #c084fc;   /* main heading colour from poster */
+  --pink:       #e9a8ff;
+  --text:       #f3ecff;
+  --muted:      #b9a8e0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 85% 10%, #3a1fa8 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 60%, #1d0a52 0%, transparent 50%),
+    var(--space);
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+/* starfield */
+body::before {
+  content: "";
+  position: fixed; inset: 0; z-index: -1;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 120px, #d9c6ff, transparent),
+    radial-gradient(1.5px 1.5px at 160px 60px, #fff, transparent),
+    radial-gradient(1px 1px at 230px 180px, #c084fc, transparent);
+  background-size: 260px 220px;
+  opacity: .7;
+}
+
+h1, h2, h3, .brand { font-family: 'Bungee', 'Montserrat', sans-serif; font-weight: 400; letter-spacing: .02em; }
+a { color: var(--pink); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(5, 1, 15, .85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(192, 132, 252, .25);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .75rem; flex-wrap: wrap; }
+.brand { color: var(--lilac); text-decoration: none; font-size: 1.05rem; }
+nav ul { list-style: none; display: flex; gap: 1.25rem; flex-wrap: wrap; }
+nav a { color: var(--text); text-decoration: none; font-size: .9rem; font-weight: 600; }
+nav a:hover { color: var(--pink); }
+
+/* ---------- Hero ---------- */
+.hero { text-align: center; padding: 5rem 0 4rem; }
+.hero h1 {
+  font-size: clamp(2.4rem, 9vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--lilac);
+  background: linear-gradient(180deg, var(--pink), var(--violet));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 24px rgba(139, 92, 246, .55));
+}
+.hero .school { margin-top: 1.5rem; color: var(--muted); font-weight: 600; }
+.hero-meta { margin-top: 2rem; display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap; }
+.pill {
+  font-family: 'Bungee', sans-serif; font-size: .95rem;
+  padding: .6rem 1.1rem; border-radius: 999px;
+  border: 1.5px solid var(--lilac); color: var(--lilac);
+  background: rgba(67, 51, 107, .5);
+}
+.btn {
+  display: inline-block; margin-top: 2rem;
+  padding: .85rem 1.8rem; border-radius: 10px;
+  background: var(--violet); color: #fff; font-weight: 700; text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.btn:hover { background: var(--lilac); color: var(--space); transform: translateY(-2px); }
+
+/* ---------- Sections ---------- */
+section { padding: 3.5rem 0; }
+section h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--lilac); margin-bottom: .5rem; }
+.lead { color: var(--muted); max-width: 62ch; margin-bottom: 2rem; }
+
+/* ---------- Sector grid ---------- */
+.sectors { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+.sector {
+  background: var(--panel); border: 1px solid rgba(192, 132, 252, .3);
+  border-radius: 14px; padding: 1.1rem 1.2rem;
+  display: flex; align-items: center; gap: .8rem;
+  font-weight: 600;
+  transition: border-color .2s, transform .2s;
+}
+.sector:hover { border-color: var(--pink); transform: translateY(-3px); }
+.sector .icon { font-size: 1.7rem; }
+
+/* ---------- Info / schedule ---------- */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+.card { background: var(--nebula); border: 1px solid rgba(192, 132, 252, .3); border-radius: 14px; padding: 1.5rem; }
+.card h3 { color: var(--pink); font-size: 1.1rem; margin-bottom: .6rem; }
+.card ul { padding-left: 1.2rem; color: var(--muted); }
+.card li { margin-bottom: .3rem; }
+
+table { width: 100%; border-collapse: collapse; background: var(--nebula); border-radius: 14px; overflow: hidden; }
+th, td { text-align: left; padding: .9rem 1.1rem; border-bottom: 1px solid rgba(192, 132, 252, .2); }
+th { background: var(--panel); color: var(--pink); font-family: 'Bungee', sans-serif; font-weight: 400; font-size: .9rem; }
+.table-scroll { overflow-x: auto; }
+
+/* ---------- Footer ---------- */
+.site-footer { text-align: center; padding: 2.5rem 1rem; color: var(--muted); font-size: .9rem; border-top: 1px solid rgba(192, 132, 252, .25); margin-top: 2rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 3rem 0 2.5rem; }
+  nav ul { gap: .9rem; }
+}
